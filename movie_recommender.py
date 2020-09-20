@@ -29,10 +29,20 @@ while(match(movie_user_likes) == False):
 	print("This movie does not exists!")
 	words = list(movie_user_likes.split(" "))
 	words.sort(key = lambda x:len(x), reverse=True)
-	print("similar movies are listed below : ")
-	for name in df['title']:
-		if words[0] in name:
-			print(name)
+	new_words = [word.capitalize() for word in words]
+	checker = ""
+	print("Did you mean : ")
+	first = True
+	for word in new_words:
+		if first :
+			first = False
+			checker += word
+		else :
+			checker += " "
+			checker += word
+		for name in df['title']:
+			if checker in name:
+				print(name)
 
 	movie_user_likes = input("Enter the name of movie you like : ")
 
