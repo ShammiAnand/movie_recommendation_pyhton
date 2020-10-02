@@ -88,7 +88,8 @@ sorted_similar_movies = sorted(similar_movies,key=lambda x:x[1],reverse=True)
 print("Here are the top 10 similar movies we recommend : ")
 i=1
 for element in sorted_similar_movies:
-		print(f"{i}. {get_title_from_index(element[0])}")
+		if i != 1:
+			print(f"{i-1}. {get_title_from_index(element[0])}")
 		i+=1
 		if i>10:
 			break
