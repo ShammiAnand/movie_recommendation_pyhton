@@ -50,7 +50,7 @@ def find_similar_movies(words):
 			print(f"{number}. {name}")
 			number += 1
 
-if match_name(movie_user_likes) == False :
+while match_name(movie_user_likes) == False :
 	print("This movie does not exists!")
 	words = list(movie_user_likes.split(" "))
 	words.sort(key = lambda x:len(x), reverse=True)
